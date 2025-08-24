@@ -1,7 +1,6 @@
 const image = document.getElementById("interactive-image");
 const emojiContainer = document.getElementById("emoji-container");
 
-const emojis = ["😍", "🔥", "😎", "✨", "🎉", "💖", "👏", "😂", "😮"];
 const messages = [
   "¡Quieres ser la princesa de este negro!",
   "¡Ganoso de ir a darle unos besos solo por linda!",
@@ -18,15 +17,6 @@ const colors = [
 let currentMessageIndex = 0;
 
 image.addEventListener("click", (e) => {
-  // EMOJI flotante
-  const emoji = document.createElement("div");
-  emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-  emoji.classList.add("emoji");
-  emoji.style.left = `${e.clientX}px`;
-  emoji.style.top = `${e.clientY}px`;
-  emojiContainer.appendChild(emoji);
-  setTimeout(() => emoji.remove(), 2000);
-
   // Mostrar mensaje solo si quedan disponibles
   if (currentMessageIndex < messages.length) {
     const message = messages[currentMessageIndex];
