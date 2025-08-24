@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Botón Interactivo con Emojis</title>
+  <script src="script.js" defer></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-image: url('img/fondo.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .emoji {
+      position: absolute;
+      animation: floatUp 2s ease-out forwards;
+      font-size: 2rem;
+      pointer-events: none;
+    }
+
+    @keyframes floatUp {
+      0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-100px) scale(1.5);
+      }
+    }
+
+    .message {
+      animation: popFade 2.5s ease-in-out forwards;
+    }
+
+    @keyframes popFade {
+      0% {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      20% {
+        opacity: 1;
+        transform: scale(1);
+      }
+      80% {
+        opacity: 1;
+        transform: scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+    }
+  </style>
+</head>
+<body class="flex items-center justify-center min-h-screen relative overflow-hidden">
+
+  <div id="emoji-container" class="absolute top-0 left-0 w-full h-full pointer-events-none z-10"></div>
+
+  <div id="message-box" class="absolute top-12 text-center w-full z-20">
+    <!-- Mensaje dinámico aparece aquí -->
+  </div>
+
+<img
+  id="interactive-image"
+  src="img/boton.jpg"
+  alt="Botón de Corazón"
+  class="w-40 h-40 object-contain cursor-pointer rounded-full z-30"
+/>
+
+</body>
+</html>
